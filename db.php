@@ -1,7 +1,9 @@
 <?php
+$dsn = 'mysql:host=localhost;dbname=random_recette';
+$username = 'root';
+$password = '';
+$options = [];
 try {
-    $database = new PDO('mysql:host=localhost;dbname=random_recette', 'root', '');
+    $connection = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br/>";
-    die();
 }
