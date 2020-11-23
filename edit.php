@@ -21,7 +21,7 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
   $statement = $connection->prepare($sql);
 
   if ($statement->execute([':nom_recette' => $name, ':ingredients' => $ingredients, ':description1' => $description, ':ID' => $ID])) {
-    header("Location: index.php");
+    header("Location: index2.php");
   }
 }
 
