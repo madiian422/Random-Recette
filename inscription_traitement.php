@@ -13,19 +13,7 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['tel']) && i
     $password = htmlspecialchars($_POST['password']);
     $password_retype = htmlspecialchars($_POST['password_retype']);
 
-    // $check = $connection->prepare('SELECT nom, prenom, tel, adresse, email, password FROM user WHERE email = ?');
-    // $check->execute(array($email));
-    // $data = $check->fetch();
-    // $row = $check->rowCount();
 
-    // if ($row == 0) {
-    //     if (strlen($nom) <= 100) {
-    //         if (strlen($email) <= 100) {
-    //             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //                 if ($password == $password_retype) {
-
-    //                     $password = hash('sha256', $password);
-    //$ip = $_SERVER['REMOTE_ADDR'];
 
     $insert = $connection->prepare('INSERT INTO user(nom, prenom, tel, adresse, email, password) VALUES(:nom, :prenom, :tel, :adresse, :email,:password)');
     $insert->execute(array(
@@ -38,13 +26,6 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['tel']) && i
         ':password' => $password
 
     ));
-
-    //                     header('Location:inscription.php?reg_err=success');
-    //                 } else header('Location: inscription.php?reg_err=password');
-    //             } else header('Location: inscription.php?reg_err=email');
-    //         } else header('Location: inscription.php?reg_err=email_length');
-    //     } else header('Location: inscription.php?reg_err=nom_length');
-    // } else header('Location: inscription.php?reg_err=already');
 }
 
 echo $nom . " " . $prenom . " " . $tel . " " . $adresse . " " . $email . " " . $password;
