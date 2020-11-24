@@ -7,7 +7,7 @@ class Users
     private $prenom;
     private $tel;
     private $adresse;
-    private $login;
+    private $email;
     private $password;
     private $pays;
 
@@ -126,21 +126,21 @@ class Users
 
 
     /**
-     * Get the value of login
+     * Get the value of email
      */
-    public function getLogin()
+    public function setEmail()
     {
-        return $this->login;
+        return $this->email;
     }
 
     /**
-     * Set the value of login
+     * Set the value of email
      *
      * @return  self
      */
-    public function setLogin($login)
+    public function getEmail($email)
     {
-        $this->login = $login;
+        $this->email = $email;
 
         return $this;
     }
