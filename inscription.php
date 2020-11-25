@@ -93,6 +93,9 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Inscription</button>
             </div>
+            <form>
+                <input class="btn btn-info btn-block" type="button" value="Retour" onclick="history.go(-1)">
+            </form>
         </form>
     </div>
     <style>

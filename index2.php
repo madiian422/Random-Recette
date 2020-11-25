@@ -1,4 +1,5 @@
 <?php
+
 require 'db.php';
 $sql = 'SELECT * FROM recette';
 $statement = $connection->prepare($sql);

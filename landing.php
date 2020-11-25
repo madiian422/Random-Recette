@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION['user']))
     header('Location:index3.php');
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,6 +15,10 @@ if (!isset($_SESSION['user']))
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="./style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -39,12 +44,10 @@ if (!isset($_SESSION['user']))
                 <h1 class="p-5">Bonjour ! <?php echo $_SESSION['user']; ?></h1>
                 <hr />
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
+                <button type="button" class="btn btn-info " data-toggle="modal" data-target="#change_password">
                     Changer mon mot de passe
                 </button>
-                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#avatar">
-                    Changer mon avatar
-                </button>
+
                 <button class="btn btn-danger"><a href="deconnexion.php">Déconnexion</a></button>
             </div>
         </div>

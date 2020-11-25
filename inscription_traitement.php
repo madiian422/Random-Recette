@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
 
+
 if (isset($_POST['pseudo']) && isset($_POST['prenom']) && isset($_POST['tel']) && isset($_POST['adresse']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_retype'])) {
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $prenom = htmlspecialchars($_POST['prenom']);

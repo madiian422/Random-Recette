@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+
 $message = '';
 if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POST['description1'])) {
 
