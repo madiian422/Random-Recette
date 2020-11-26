@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require '../db.php';
 
 $message = '';
 if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POST['description1'])) {
@@ -17,7 +17,7 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
 
 
 ?>
-<?php require 'header.php'; ?>
+<?php require '../header.php'; ?>
 <div class="container">
   <div class="card mt-5">
     <div class="card-header">
@@ -49,4 +49,4 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
     </div>
   </div>
 </div>
-<?php require 'footer.php'; ?>
+<?php require '../footer.php'; ?>

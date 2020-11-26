@@ -1,6 +1,6 @@
 <?php
-require 'db.php';
-include 'back_ground.php';
+require '../db.php';
+
 
 
 $ID = $_GET['ID'];

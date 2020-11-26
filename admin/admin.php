@@ -8,7 +8,7 @@ if (isset($_POST['ok_connect'])) {
         if ($_POST['mail'] == $mail) {
             if ($_POST['mdp'] == $mdp) {
                 $_SESSION['mdp'] = $mdp;
-                header('location:index4.php');
+                header('location:index.php');
             } else {
                 echo 'Mot de passe incorrect';
             }

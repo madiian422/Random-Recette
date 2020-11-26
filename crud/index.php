@@ -1,12 +1,12 @@
 <?php
 
-require 'db.php';
+require '../db.php';
 $sql = 'SELECT * FROM recette';
 $statement = $connection->prepare($sql);
 $statement->execute();
 $recette = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
-<?php require 'header.php'; ?>
+<?php require '../header.php'; ?>
 <div class="container">
   <div class="card mt-5">
     <div class="card-header">
@@ -37,4 +37,4 @@ $recette = $statement->fetchAll(PDO::FETCH_OBJ);
     </div>
   </div>
 </div>
-<?php require 'footer.php'; ?>
+<?php require '../footer.php'; ?>
