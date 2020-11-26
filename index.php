@@ -17,11 +17,11 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <!-- <div class="container-fluid">
 
     <button class="btn btn-info pull-left"><a href="index3.php">Connexion</a></button>
     <script src="./script.js" type="text/javascript"></script>
-  </div>
+  </div> -->
 
 </body>
 
