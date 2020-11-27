@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+// vérification si les champs sont vide ou pas 
 if (isset($_POST['ok_connect'])) {
     if (!empty($_POST['mail']) && !empty($_POST['mdp'])) {
         $mdp = 'admin';
         $mail = 'ian@gmail.com';
         if ($_POST['mail'] == $mail) {
             if ($_POST['mdp'] == $mdp) {
+                // declaration de la variable session qui authentifie l'admin
                 $_SESSION['mdp'] = $mdp;
-                header('location:index.php');
+                header('location:../crud/index.php');
             } else {
                 echo 'Mot de passe incorrect';
             }
@@ -34,11 +36,13 @@ if (isset($_POST['ok_connect'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Connexion admin</title>
 
+
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container login-form">
+
 
         <form method="post">
             <h2 class="text-center">Connexion Admin</h2>
@@ -52,6 +56,7 @@ if (isset($_POST['ok_connect'])) {
                 <button type="submit" class="btn btn-primary btn-block" name="ok_connect">Connexion</button>
             </div>
         </form>
+
 
     </div>
     <style>

@@ -1,6 +1,7 @@
 <?php
-session_start();
 require_once '../db.php';
+session_start();
+
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = htmlspecialchars($_POST['email']);
@@ -11,6 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $data = $check->fetch();
     $row = $check->rowCount();
 
+    // gestion des erreurs
     if ($row == 1) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $password = hash('sha256', $password);

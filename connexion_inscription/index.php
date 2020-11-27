@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 
@@ -14,12 +15,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Connexion</title>
 
+
 </head>
 
 <body>
 
     <div class="login-form">
         <?php
+        // gestion des erreurs
         if (isset($_GET['login_err'])) {
             $err = htmlspecialchars($_GET['login_err']);
 

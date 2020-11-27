@@ -1,8 +1,16 @@
 <?php
+
+session_start();
 require '../db.php';
+if (!$_SESSION['mdp']) {
+  header('location:../admin/admin.php');
+}
+
+
+
 
 $message = '';
-if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POST['description1'])) {
+if (isset($_POST['nom_recette']) && isset($_POST['ingredients']) && isset($_POST['description1'])) {
 
   $name = $_POST['nom_recette'];
   $ingredients = $_POST['ingredients'];
@@ -19,6 +27,7 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
 ?>
 <?php require '../header.php'; ?>
 <div class="container">
+  <button><a href="../admin/deconnect.php">Déconnexion</a></button>
   <div class="card mt-5">
     <div class="card-header">
       <h2>Ajouter une recette</h2>
@@ -43,8 +52,11 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
           <input type="text" name="description1" id="description1" class="form-control">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-info">Ajouter la recette</button>
+          <button type="submit" class="btn btn-primary">Ajouter la recette</button>
         </div>
+        <form>
+          <input class="btn btn-info " type="button" value="Retour" onclick="history.go(-1)">
+        </form>
       </form>
     </div>
   </div>

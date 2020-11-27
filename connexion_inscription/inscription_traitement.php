@@ -1,8 +1,13 @@
 <?php
+session_start();
+?>
+
+<?php
 require_once '../db.php';
 
 
 if (isset($_POST['pseudo']) && isset($_POST['prenom']) && isset($_POST['tel']) && isset($_POST['adresse']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password_retype'])) {
+
     $pseudo = htmlspecialchars($_POST['pseudo']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $tel = htmlspecialchars($_POST['tel']);
@@ -11,17 +16,20 @@ if (isset($_POST['pseudo']) && isset($_POST['prenom']) && isset($_POST['tel']) &
     $password = htmlspecialchars($_POST['password']);
     $password_retype = htmlspecialchars($_POST['password_retype']);
 
+
+
     $check = $connection->prepare('SELECT pseudo,prenom,tel,adresse, email, password FROM utilisateurs WHERE email = ?');
     $check->execute(array($email));
     $data = $check->fetch();
     $row = $check->rowCount();
 
+    // gestion des erreurs et insertion des nouveaux utilisateurs
     if ($row == 0) {
         if (strlen($pseudo) <= 100) {
             if (strlen($email) <= 100) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if ($password == $password_retype) {
-
+                        // table de hashage sha256 pour crypter le mot de passe 
                         $password = hash('sha256', $password);
                         $ip = $_SERVER['REMOTE_ADDR'];
 

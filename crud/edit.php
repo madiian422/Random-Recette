@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+
+if (!$_SESSION['mdp']) {
+  header('location:../admin/admin.php');
+}
 require '../db.php';
 
 $ID = $_GET['ID'];
@@ -21,7 +27,7 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
   $statement = $connection->prepare($sql);
 
   if ($statement->execute([':nom_recette' => $name, ':ingredients' => $ingredients, ':description1' => $description, ':ID' => $ID])) {
-    header("Location: index2.php");
+    header("Location: index.php");
   }
 }
 
@@ -53,8 +59,11 @@ if (isset($_POST['nom_recette'])  && isset($_POST['ingredients']) && isset($_POS
           <input value="<?= $recette->description1; ?>" type="text" name="description1" id="description1" class="form-control">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-info">Modifier la recette</button>
+          <button type="submit" class="btn btn-primary">Modifier la recette</button>
         </div>
+        <form>
+          <input class="btn btn-info " type="button" value="Retour" onclick="history.go(-1)">
+        </form>
       </form>
     </div>
   </div>

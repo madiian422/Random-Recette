@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +18,7 @@
 <body>
     <div class="login-form">
         <?php
+        // gestion des erreurs
         if (isset($_GET['reg_err'])) {
             $err = htmlspecialchars($_GET['reg_err']);
 
